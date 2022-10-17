@@ -133,7 +133,7 @@ impl Condvar {
         unsafe { gettimeofday(&mut now, core::ptr::null_mut()) };
 
         let abstime = timespec {
-            tv_sec: now.tv_sec + duration.as_secs() as i32,
+            tv_sec: now.tv_sec + duration.as_secs() as i64,
             tv_nsec: (now.tv_usec * 1000) + duration.subsec_nanos() as i32,
         };
 
